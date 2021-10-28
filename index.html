@@ -10,16 +10,16 @@
 
 <body>
 	<h1>My web page.</h1>
-	<h3>GET method.</h3>
-	<form action="/name" method="get">
+	<h3>GET method.</h3> <!-- GET method uses the url to encode the form values -->
+	<form action="/name" method="get"> <!-- method for submitting form is GET -->
 		<label for="fname">First name:</label><br>
-		<input type="text" id="fname" name="fname" value="John"><br>
+		<input type="text" id="fname" name="fname" value="John"><br> <!-- name is "fname", default value is "John" -->
 		<label for="lname">Last name:</label><br>
 		<input type="text" id="lname" name="lname" value="Doe"><br><br>
 		<input type="submit" value="Submit">
 	</form>
 
-	<h3>POST method.</h3>
+	<h3>POST method.</h3> <!-- POST method sends the form values in the body of the HTTP request -->
 	<form action="/name" method="post">
 		<label for="fname">First name:</label><br>
 		<input type="text" id="fname" name="fname" value="John"><br>
