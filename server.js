@@ -1,7 +1,15 @@
 const path = require('path')
 const express = require('express')
+const { application } = require('express')
 const app = express()
 const port = 3000
+const bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
 	res.send('Welcome to Data Representation & Querying')
@@ -32,6 +40,14 @@ app.get('/api/movies', (req, res) => {
 
 app.get('/test', (req, res) => {
 	res.sendFile(__dirname + `/index.html`)
+})
+
+app.get('/name', (req, res) => {
+	res.send(`Hello ${req.query.fname} ${req.query.lname}`)
+})
+
+app.post('/name', (req, res) => {
+	res.send(`Hello ${req.body.fname} ${req.body.lname}`)
 })
 
 app.listen(port, () => {
